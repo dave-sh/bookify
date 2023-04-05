@@ -2,5 +2,7 @@
 
 To run, clone the repository and run the command 
 
-```npm install``` to get all the dependencies, and npm start to run on your local machine.
+```npm install``` to get all the dependencies.
+
+Then, run ```npm start``` to run the application on your local machine.
 
