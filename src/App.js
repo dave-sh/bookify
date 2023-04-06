@@ -2,7 +2,7 @@ import './App.css';
 
 function App() {
   return (
-    <div class="hero min-h-screen bg-base-100">
+    <div class="min-h-screen bg-base-100">
 		<div class="navbar bg-base-100">
   			<div class="flex-1">
     			<a class="btn btn-ghost normal-case text-xl">daisyUI</a>
