@@ -1,4 +1,4 @@
-# CIS4930 Web Application Group Project
+# bookify travel planning application
 
 To run, clone the repository and run the command 
 
