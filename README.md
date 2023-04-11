@@ -14,16 +14,7 @@ Enter a place, and max distance from a place
 
 # Filter Options
 
-amusement_park
-aquarium
-art_gallery
-bar
-restaurant
-tourist_attraction
-zoo
-shopping_mall
-night_club
-museum
+amusement_park, aquarium, art_gallery, bar, restaurant, tourist_attraction, zoo, shopping_mall, night_club, museum
 
 
 
