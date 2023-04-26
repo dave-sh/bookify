@@ -50,15 +50,18 @@
         </div>
       </div>
     </div>
-    <div id="introCard" class="card w-1/2 mt-12 mx-auto bg-base-100 shadow-xl image-full">
-      <figure><img src="images/florida.jpeg" alt="Shoes" /></figure>
-      <div class="card-body items-center text-center">
-        <p class="text-4xl mt-24 italic">If you could go anywhere where would you go?</p>
-        <div class="form-control -mt-8">
-          <form action="components/vacation.php" method="get">
-            <input type="text" name="place" id="place" placeholder="Search" class="input input-bordered" />
-            <br><button class="mt-2 btn btn-primary">Get Booking</button>
-          </form>
+
+    <div class="bg-base-200 flex-1">
+      <div id="introCard" class="card w-1/2 mt-12 mx-auto bg-base-100 shadow-xl image-full">
+        <figure><img src="images/florida.jpeg" alt="Shoes" /></figure>
+        <div class="card-body items-center text-center">
+          <p class="text-4xl mt-24 italic">If you could go anywhere where would you go?</p>
+          <div class="form-control -mt-8">
+            <form action="components/vacation.php" method="get">
+              <input type="text" name="place" id="place" placeholder="Search" class="input input-bordered" />
+              <br><button class="mt-2 btn btn-primary">Get Booking</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
