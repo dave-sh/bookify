@@ -41,10 +41,10 @@
           <li><a href='components/vacations.php'>Vacations</a></li>
           <li><a>Logout</a></li>
         </ul> -->
-          <form action="components/signup.php" method="get">
+          <form action="components/signup.php" method="get" class="inline">
             <button class="mt-2 btn btn-secondary"> Sign Up </button>
           </form>
-          <form action="components/login.php" method="get">
+          <form action="components/login.php" method="get" class="inline">
             <button class="mt-2 btn btn-secondary"> Login </button>
           </form>
         </div>
