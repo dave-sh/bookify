@@ -17,10 +17,10 @@ Always make sure your branch is up to date with the main branch before pushing c
 
 # Functionality
 
-Enter a place, and max distance from a place
+Filter out certain destinations from some popular Florida cities. 
 
 # Filter Options
 
-amusement_park, aquarium, art_gallery, bar, restaurant, tourist_attraction, zoo, shopping_mall, night_club, museum
+tourist_attraction, restaurant
 
 
