@@ -25,4 +25,4 @@ tourist_attraction, restaurant
 
 ![image](https://user-images.githubusercontent.com/43797198/234698723-b36d0d60-b0a4-4812-8579-0164e7e03a09.png)
 
-
+![image](https://user-images.githubusercontent.com/43797198/234961653-e0b7e006-a5da-471a-b316-bde156c7c874.png)
