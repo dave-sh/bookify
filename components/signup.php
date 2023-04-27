@@ -68,16 +68,23 @@ $stmt = $conn->prepare("INSERT INTO User (Email, Password) VALUES (?, ?)");
 $stmt->bind_param("ss", $email, $hashed_password);
 
 // Execute the statement
-
-if ($stmt->execute()) { ?>
+try {
+    if ($stmt->execute()) { ?>
+        <div class="container">
+            <h1>Success!</h1>
+            <p>New user created successfully.</p>
+            <a href="/index.php">Go back to Homepage</a>
+        </div>
+    <?php } else { ?>
+        <div class="container">
+            <h1><?php echo "Error: " . $stmt->error; ?></h1>
+            <a href="/index.php">Go back to Homepage</a>
+        </div>
+    <?php }
+}
+catch (Exception $e) { ?>
     <div class="container">
-        <h1>Success!</h1>
-        <p>New user created successfully.</p>
-        <a href="/index.php">Go back to Homepage</a>
-    </div>
-<?php } else { ?>
-    <div class="container">
-        <h1><?php echo "Error: " . $stmt->error; ?></h1>
+        <h1><?php echo "Error: The email " . $email . " already exists" ?></h1>
         <a href="/index.php">Go back to Homepage</a>
     </div>
 <?php }
