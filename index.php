@@ -1,6 +1,5 @@
 #!/usr/local/bin/php
 <html>
-
 <head>
   <meta charset="utf-8" />
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
@@ -21,45 +20,21 @@
 
 <body>
   <div data-theme="cupcake" class="h-full min-h-screen flex flex-col bg-base-100">
-    <div class="navbar bg-primary">
-      <div class="flex-1">
-        <a class="btn btn-ghost normal-case text-xl">Bookify</a>
-      </div>
-      <div class="flex-none">
-        <div class="dropdown dropdown-end">
-          <!-- <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-          <div class="w-10 rounded-full">
-            <img src="images/empty.png" />
-          </div>
-        </label> -->
-          <!-- <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-          <li>
-            <a class="justify-between">
-              Profile
-            </a>
-          </li>
-          <li><a href='components/vacations.php'>Vacations</a></li>
-          <li><a>Logout</a></li>
-        </ul> -->
-          <form action="backend/signup.html" method="post" class="inline">
-            <button class="mt-2 btn btn-secondary"> Sign Up </button>
-          </form>
-          <form action="components/login.php" method="get" class="inline">
-            <button class="mt-2 btn btn-secondary"> Login </button>
-          </form>
-        </div>
-      </div>
-    </div>
-
+  <div id="nav"></div>
     <div class="bg-base-200 flex-1">
       <div id="introCard" class="card w-1/2 mt-12 mx-auto bg-base-100 shadow-xl image-full">
-        <figure><img src="images/florida.jpeg" alt="Shoes" /></figure>
+        <figure><img src="images/florida.jpeg"/></figure>
         <div class="card-body items-center text-center">
           <p class="text-4xl mt-24 italic">If you could go anywhere where would you go?</p>
-          <div class="form-control -mt-8">
-            <form action="components/planningpage.php" method="get">
-              <input type="text" name="place" id="place" placeholder="Search" class="input input-bordered" />
-              <br><button class="mt-2 btn btn-primary">Get Booking</button>
+          <div class="form-control">
+            <form action="components/activities.php" method="get">
+            <select id="place" name="place" class="select select-lg select-ghost w-full mb-2">
+              <option disabled selected>---</option>
+              <option value="Tampa">Tampa, FL</option>
+              <option value="Jacksonville">Jacksonville, FL</option>
+              <option value="Gainesville">Gainesville, FL</option>
+            </select>
+              <br><button class="hover:cursor-pointer hover:underline font-bold text-2xl">Get Booking</button>
             </form>
           </div>
         </div>
