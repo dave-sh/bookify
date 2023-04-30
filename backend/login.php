@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<?php 
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,16 +9,15 @@
 <body>
 
 <?php
->>>>>>> 018a676aab32ef4ac3b3ffb130b8b17768078846
 
 include("config.php");
 session_start();
 
-if($_servername["REQUEST_METHOD"] == "POST") {
+if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // prevent XSS injections
-    $username = mysqli_real_escape_string($conn, $username);
-    $password = mysqli_real_escape_string($conn, $password);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT)
 
@@ -34,19 +30,6 @@ if($_servername["REQUEST_METHOD"] == "POST") {
 
   $count = mysqli_num_rows($result)
   if($count == 1) {
-<<<<<<< HEAD
-    session_register("myusername");
-    $_SESSION['login_user'] = $username;
-    
-    header("location: welcome.php");
-   }else {
-    $error = "Your Username or Password is invalid";
-   }
-
-}
-         
-=======
-      session_register("myusername");
       $_SESSION['login_user'] = $username;
 
       header("location: welcome.php");
@@ -56,7 +39,6 @@ if($_servername["REQUEST_METHOD"] == "POST") {
 
 }
 
->>>>>>> 018a676aab32ef4ac3b3ffb130b8b17768078846
 
 
 
