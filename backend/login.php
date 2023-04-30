@@ -32,7 +32,6 @@
             if ($user && password_verify($password, $user['Password'])) {
                 // Password is correct
                 $_SESSION['login_user'] = $username;
-                $_SESSION['loggedin'] = true;
                 header("location: ../index.php");
             } else {
                 // Password is incorrect
@@ -64,3 +63,4 @@
 
 </body>
 </html>
+
