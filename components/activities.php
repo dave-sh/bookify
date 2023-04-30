@@ -83,6 +83,33 @@ $result = $conn->query($sql);
 				}
 				$conn->close();
 				?>
+				<!--
+                <div class="container rounded-lg border-2 p-4">
+                    <h2 class="card-title">activity</h2>
+                    <p>Info: Cost, type of activity, open times</p>
+                    <button class="hover:bg-base-100 hover:underline mt-4 text-primary font-bold">Add</button>
+                </div>
+                <div class="container rounded-lg border-2 p-4">
+                    <h2 class="card-title">activity</h2>
+                    <p>Info: Cost, type of activity, open times</p>
+                    <button class="hover:bg-base-100 hover:underline mt-4 text-primary font-bold">Add</button>
+                </div>
+                <div class="container rounded-lg border-2 p-4">
+                    <h2 class="card-title">activity</h2>
+                    <p>Info: Cost, type of activity, open times</p>
+                    <button class="hover:bg-base-100 hover:underline mt-4 text-primary font-bold">Add</button>
+                </div>
+                <div class="container rounded-lg border-2 p-4">
+                    <h2 class="card-title">activity</h2>
+                    <p>Info: Cost, type of activity, open times</p>
+                    <button class="hover:bg-base-100 hover:underline mt-4 text-primary font-bold">Add</button>
+                </div>
+                <div class="container rounded-lg border-2 p-4">
+                    <h2 class="card-title">activity</h2>
+                    <p>Info: Cost, type of activity, open times</p>
+                    <button class="hover:bg-base-100 hover:underline mt-4 text-primary font-bold">Add</button>
+                </div>
+                -->
 			</div>
 		</div>
 	</div>
