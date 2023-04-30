@@ -1,4 +1,18 @@
+<<<<<<< HEAD
 <?php 
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+
+</head>
+<body>
+
+<?php
+>>>>>>> 018a676aab32ef4ac3b3ffb130b8b17768078846
 
 include("config.php");
 session_start();
@@ -20,6 +34,7 @@ if($_servername["REQUEST_METHOD"] == "POST") {
 
   $count = mysqli_num_rows($result)
   if($count == 1) {
+<<<<<<< HEAD
     session_register("myusername");
     $_SESSION['login_user'] = $username;
     
@@ -30,6 +45,18 @@ if($_servername["REQUEST_METHOD"] == "POST") {
 
 }
          
+=======
+      session_register("myusername");
+      $_SESSION['login_user'] = $username;
+
+      header("location: welcome.php");
+  }else {
+      $error = "Your Username or Password is invalid";
+  }
+
+}
+
+>>>>>>> 018a676aab32ef4ac3b3ffb130b8b17768078846
 
 
 
