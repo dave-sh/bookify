@@ -12,11 +12,42 @@
 </head>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
-  $(document).ready(function () {
+  /*$(document).ready(function () {
     $("#nav").load("components/navbar.html");
   });
+*/
+
 
 </script>
+<?php
+  session_start();
+  ?>
+  <div data-theme="cupcake" class="navbar bg-primary">
+    <div class="flex-1">
+        <a href="../../bookify/index.php" class="hover:cursor-pointer hover:underline text-white font-bold text-4xl">Bookify</a>
+    </div>
+    <div class="flex-none">
+        <?php if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn']): ?>
+<!-- Display links for logged-in users -->
+<form action="#" method="post" class="text-white inline">
+  <button class="hover:underline mt-4 text-white text-xl font-bold">My Profile</button> |&nbsp;
+</form>
+<form action="#" method="get" class="inline">
+  <button class=" hover:underline mt-4 text-white text-xl font-bold mr-2">Logout</button>
+</form>
+<?php else: ?>
+<!-- Display links for non-logged-in users -->
+<form action="backend/signup.html" method="post" class="text-white inline">
+  <button class="hover:underline mt-4 text-white text-xl font-bold">Sign Up</button> |&nbsp;
+</form>
+<form action="backend/login.php" method="get" class="inline">
+  <button class=" hover:underline mt-4 text-white text-xl font-bold mr-2">Login</button>
+</form>
+<?php endif; ?>
+</div>
+</div>
+
+?>
 
 <body>
   <div data-theme="cupcake" class="h-full min-h-screen flex flex-col bg-base-100">
