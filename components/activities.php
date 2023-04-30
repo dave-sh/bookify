@@ -1,10 +1,14 @@
 #!/usr/local/bin/php
 <?php
+require_once('../backend/config.php');
 session_start();
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	header("location: ../backend/login.html");
 	exit;
 }
+
+$sql = "SELECT Title, Review_points, Main_image, Description, Price_Range FROM locations";
+$result = $conn->query($sql);
 ?>
 <html>
 
@@ -53,6 +57,22 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 			  <option>Rating</option>
 			</select>
 			<div class="container m-auto grid grid-cols-4 gap-4">
+					<?php
+						if ($result->num_rows > 0) {
+							// Output data of each row
+							while($row = $result->fetch_assoc()) {
+								echo "<div class='container rounded-lg border-2 p-4'>";
+								echo "<h2 class='card-title'>" . $row['Title'] . "</h2>";
+								echo "<p>Cost: " . $row['Price_Range'] . ", Description: " . $row['Description'] . ", Review Points: " . $row['Review_points'] . "</p>";
+								echo "<button class='hover:bg-base-100 hover:underline mt-4 text-primary font-bold'>Add</button>";
+								echo "</div>";
+							}
+						} else {
+							echo "No activities found";
+						}
+						$conn->close();
+					?>
+					<!--
 					<div class="container rounded-lg border-2 p-4">
 						<h2 class="card-title">activity</h2>
 						<p>Info: Cost, type of activity, open times</p>
@@ -78,6 +98,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 						<p>Info: Cost, type of activity, open times</p>
 						<button class="hover:bg-base-100 hover:underline mt-4 text-primary font-bold">Add</button>
 					</div>
+					-->
 			</div>
   	</div>
   </div>
