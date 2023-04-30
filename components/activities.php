@@ -1,5 +1,13 @@
 #!/usr/local/bin/php
+<?php
+session_start();
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+	header("location: ../backend/login.html");
+	exit;
+}
+?>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
