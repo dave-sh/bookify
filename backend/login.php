@@ -15,6 +15,7 @@
         <h2 class="text-lg font-semibold text-gray-700 mb-4">Login</h2>
         <?php
         require_once('config.php');
+        session_start();
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             // prevent XSS injections
             $username = mysqli_real_escape_string($conn, $_POST['email']);
