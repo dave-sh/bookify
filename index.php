@@ -19,7 +19,9 @@
 
 
 </script>
-
+<?php
+session_start();
+?>
   <div data-theme="cupcake" class="navbar bg-primary">
     <div class="flex-1">
         <a href="../../bookify/index.php" class="hover:cursor-pointer hover:underline text-white font-bold text-4xl">Bookify</a>
