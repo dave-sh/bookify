@@ -43,9 +43,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 					echo "$place";
 				?></p>
 				<ul class="menu menu-horizontal bg-base-100 rounded-box">
-					<li><a class="hover:bg-base-100 hover:underline" onclick="location.href='vacation.php'">Location Info</a></li>
 					<li><a class="hover:bg-base-100 underline">Activities</a></li>
-					<li><a class="hover:bg-base-100 hover:underline">Item 3</a></li>
 				</ul>
   			</div>
   			<input type="text" name="place" id="place" placeholder="Search for activities" class="input input-bordered" />
