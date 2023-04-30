@@ -1,92 +1,66 @@
 #!/usr/local/bin/php
-<?php
-// Replace the following with your database connection details
-require_once 'config.php';
-
-$email = $_POST["email"];
-$pass = $_POST["password"];
-
-// Hash the password
-$hashed_password = password_hash($pass, PASSWORD_DEFAULT);
-
-// Prepare and bind the SQL statement
-$stmt = $conn->prepare("INSERT INTO User (Email, Password) VALUES (?, ?)");
-$stmt->bind_param("ss", $email, $hashed_password);
-
-// Execute the statement
-try {
-    if ($stmt->execute()) { ?>
-        <div class="container">
-            <h1>Success!</h1>
-            <p>New user created successfully.</p>
-            <a href="/index.php">Go back to Homepage</a>
-        </div>
-    <?php } else { ?>
-        <div class="container">
-            <h1><?php echo "Error: The email " . $email . " already exists" ?></h1>
-            <a href="../index.php">Go back to Homepage</a>
-        </div>
-    <?php }
-}
-catch (Exception $e) { ?>
-    <div class="container">
-        <h1><?php echo "Error: The email " . $email . " already exists" ?></h1>
-        <a href="../index.php">Go back to Homepage</a>
-    </div>
-<?php }
-
-// Close the connection
-$stmt->close();
-$conn->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-        h1 {
-            color: #007BFF;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #333;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        a:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <!-- DaisyUI CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <title>Login</title>
 </head>
-<body>
+<body class="p-4">
+
+<div data-theme="cupcake" class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="p-6">
+        <h2 class="text-lg font-semibold text-gray-700 mb-4">Login</h2>
+        <?php
+        require_once('config.php');
+        session_start();
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            // prevent XSS injections
+            $username = mysqli_real_escape_string($conn, $_POST['email']);
+            $password = $_POST['password']; // Don't escape or hash this here
+
+            $sql =  "SELECT UserID, Password FROM User WHERE Email = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $username);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $user = $result->fetch_assoc();
+
+            if ($user && password_verify($password, $user['Password'])) {
+                // Password is correct
+                $_SESSION['login_user'] = $username;
+                $_SESSION['loggedin'] = true;
+                header("location: ../index.php");
+            } else {
+                // Password is incorrect
+                echo "<div class='text-red-500 mt-4'>Your Username or Password is invalid</div>";
+            }
+        }
+        ?>
+        <form action="login.php" method="post">
+            <div class="mt-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    Email:
+                </label>
+                <input class="border rounded-lg py-2 px-3 text-gray-700 w-full" type="email" id="email" name="email" required>
+            </div>
+            <div class="mt-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Password:
+                </label>
+                <input class="border rounded-lg py-2 px-3 text-gray-700 w-full" type="password" id="password" name="password" required>
+            </div>
+            <div class="mt-8">
+                <button type="submit" class="btn btn-primary">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
