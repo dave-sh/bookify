@@ -8,11 +8,6 @@
 </head>
 <body>
 
-
-
-
-
-
 <?php
 // Replace the following with your database connection details
 require_once 'config.php';
