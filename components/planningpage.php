@@ -17,7 +17,7 @@
 <!--<script type="text/javascript" src="js/jquery.js"></script>-->
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#nav").load("components/navbar.html");
+        $("#nav").load("navbar.html");
     });
     function openForm() {
         document.getElementById("introForm").style.display = "block";
@@ -26,30 +26,8 @@
 </script>
 <body>
 <div data-theme="cupcake" class="h-full min-h-screen flex flex-col bg-base-100">
-    <div class="navbar bg-primary">
-        <div class="flex-1">
-            <a class="btn btn-ghost normal-case text-xl" onclick="location.href='../index.php'">Bookify</a>
-        </div>
-        <div class="flex-none">
-            <div class="dropdown dropdown-end">
-                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                    <div class="w-10 rounded-full">
-                        <img src="../images/empty.png" alt="pfp"/>
-                    </div>
-                </label>
-                <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                    <li>
-                        <a class="justify-between">
-                            Profile
-                        </a>
-                    </li>
-                    <li><a href='vacations.php'>Vacations</a></li>
-                    <li><a>Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-        <div class="hero min-h-screen bg-base-200">
+    <div id="nav"></div>
+    <div class="hero min-h-screen bg-base-200">
             <div class="hero-content text-center">
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <div class="card-body items-center text-center">

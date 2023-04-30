@@ -26,29 +26,7 @@
     </script>
 <body>
 <div data-theme="cupcake" class="h-full min-h-screen flex flex-col bg-base-100">
-	<div class="navbar bg-secondary">
-    	<div class="flex-1">
-      	<a class="btn btn-ghost normal-case text-xl" onclick="location.href='../index.php'">Bookify</a>
-    	</div>
-    <div class="flex-none">
-      <div class="dropdown dropdown-end">
-        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-          <div class="w-10 rounded-full">
-            <img src="../images/empty.png" />
-          </div>
-        </label>
-        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-          <li>
-            <a class="justify-between">
-              Profile
-            </a>
-          </li>
-          <li><a href='vacations.php'>Vacations</a></li>
-          <li><a>Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+	<div id="nav"></div>
 	<div id="introCard" class="card w-2/3 mt-12 mb-4 mx-auto bg-base-100 p-4 shadow">
   		<p class="text-4xl italic">Your Vacations:</p>
   	</div>
