@@ -7,7 +7,6 @@ if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true){
 	exit;
 }
 $place = $_SESSION['place'];
-$name = $_GET["name"];
 $place = strtolower($place);
 $sql = "SELECT LocationID, Title, Review_points, Main_image, Description, Price_Range FROM locations WHERE LOWER(locations.City) LIKE '%" .$place . "%'";
 $result = $conn->query($sql);
