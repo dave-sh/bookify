@@ -7,8 +7,13 @@ if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true){
 	exit;
 }
 	$email = $_SESSION['login_user'];
-	
-	$sql = "SELECT vacations.name, vacations.place, vacations.vacationID FROM vacations INNER JOIN User ON User.UserID = vacations.userID";
+		
+	$sql = "SELECT UserID FROM User WHERE Email = '$email'";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	$userid = $row['UserID'];
+
+	$sql = "SELECT name, place, vacationID FROM vacations WHERE userID = $userid";
 	$result = $conn->query($sql);
 ?>
 <html>
