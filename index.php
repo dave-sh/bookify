@@ -21,7 +21,9 @@
 <?php
 session_start();
 if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn']) {
-  include './components/navbar_logged_in.php';
+  //include './components/navbar_logged_in.php';
+  header("location: components/vacations.php");
+  exit;
 } else {
   include './components/navbar_logged_out.php';
 }
