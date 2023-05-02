@@ -8,20 +8,25 @@
 		header("location: ../index.php");
 		exit;
 	}
-	$vacationid = htmlspecialchars($_GET['vacationid']);
+	$vacationid = htmlspecialchars($_GET['vacationId'] ?? '');
 	if (empty($vacationid)) {
 		$vacationid = $_SESSION['vacationid'];
 	}
 	$sql = "SELECT name, place FROM vacations WHERE vacationID = $vacationid";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
-	$name = $row['name'];
-	$place = $row['place'];
-	$_SESSION['place'] = $place;
-	$_SESSION['name'] = $name;
+	if($row) {
+		$name = $row['name'];
+		$place = $row['place'];
+		$_SESSION['place'] = $place;
+		$_SESSION['name'] = $name;
+	}
 	$sql = "SELECT activityid FROM activities INNER JOIN locations ON activities.locationid = locations.LocationID WHERE activities.vacationid = $vacationid";
 	$result = $conn->query($sql);
-	$activityid = $row['activityid'];
+    $row = $result->fetch_assoc();
+	if($row) {
+		$activityid = $row['activityid'];
+	}
 	
 	$sql = "SELECT Title, Review_points, Main_image, Description, Price_Range FROM locations INNER JOIN activities ON activities.locationid = locations.LocationID WHERE activities.vacationid = $vacationid";
 	$result = $conn->query($sql);
