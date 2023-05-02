@@ -12,6 +12,7 @@
 	if (empty($vacationid) ) {
 		$vacationid = $_SESSION['vacationid'];
 	}
+	$_SESSION['vacationid'] = $vacationid;
 	$sql = "SELECT name, place FROM vacations WHERE vacationID = $vacationid";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
