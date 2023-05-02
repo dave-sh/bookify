@@ -55,15 +55,15 @@ session_start();
         <div class="card-body items-center text-center">
           <p class="text-4xl mt-24 italic">If you could go anywhere where would you go?</p>
           <div class="form-control">
-            <form action="components/activities.php" method="get">
+            <!--<form action="components/addvacay.php" method="get">
             <select id="place" name="place" class="select select-lg select-ghost w-full mb-2">
               <option disabled selected>---</option>
               <option value="Tampa">Tampa, FL</option>
               <option value="Jacksonville">Jacksonville, FL</option>
               <option value="Gainesville">Gainesville, FL</option>
-            </select>
-              <br><button class="hover:cursor-pointer hover:underline font-bold text-2xl">Get Booking</button>
-            </form>
+            </select>-->
+              <button onclick="location.href='backend/signup.html'" class="hover:cursor-pointer hover:underline font-bold text-2xl">Get Booking</button>
+            
           </div>
         </div>
       </div>
