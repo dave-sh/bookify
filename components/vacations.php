@@ -73,7 +73,7 @@ include 'navbar_logged_in.php';
 					}
 					$vacationid = $row["vacationID"];
 					echo "<div class='container rounded-lg border-2 p-4'>";
-					echo "<button class='btn btn-xs btn-square float-right btn-primary text-white' name='vacationid' value='$vacationid' onClick='remove()'>";
+					echo "<button class='btn btn-xs btn-square float-right btn-primary text-white' name='vacationId' value='$vacationid' onClick='remove()'>";
 					echo "<svg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>";
 					echo "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12' /></svg>";
 					echo "</button>";
@@ -81,7 +81,7 @@ include 'navbar_logged_in.php';
 					echo "<h2 class='card-title'>" .$row["name"]. "</h2>";
 					echo "<h3>".$row["place"]."</h3>";
 					echo "</div>";
-					echo "<button class='hover:bg-base-100 hover:underline mt-4 text-primary font-bold' name='vacationid' value='$vacationid' onClick='editVacation()'>View Vacation</button>";
+					echo "<button class='hover:bg-base-100 hover:underline mt-4 text-primary font-bold' name='vacationId' value='$vacationid' onClick='editVacation()'>View Vacation</button>";
 					echo "</div>";
 				}
 				} else {

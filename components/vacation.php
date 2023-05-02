@@ -9,7 +9,7 @@
 		exit;
 	}
 	$vacationid = htmlspecialchars($_GET['vacationId'] ?? '');
-	if (empty($vacationid)) {
+	if (empty($vacationid) ) {
 		$vacationid = $_SESSION['vacationid'];
 	}
 	$sql = "SELECT name, place FROM vacations WHERE vacationID = $vacationid";
