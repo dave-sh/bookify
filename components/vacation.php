@@ -62,23 +62,10 @@
 	}
     </script>
 <body>
+<?php
+include 'navbar_logged_in.php';
+?>
 <div data-theme="cupcake" class="h-full min-h-screen flex flex-col bg-base-100">
-	<!-- Display links for logged-in users -->
-	<div class="navbar bg-primary">
-    <div class="flex-1">
-      <a href="../../bookify/index.php" class="hover:cursor-pointer hover:underline text-white font-bold text-4xl">Bookify</a>
-    </div>
-    <div class="flex-none">
-		<form action="#" method="post" class="text-white inline">
-            <button class="hover:underline mt-4 text-white text-xl font-bold">
-            	<?php echo "User is".$_SESSION['login_user']; ?>
-            Profile</button> |&nbsp;
-          </form>
-          <form action="../backend/logout.php" method="get" class="inline">
-            <button class="hover:underline mt-4 text-white text-xl font-bold mr-2">Logout</button>
-          </form>
-    </div>
-  </div>
 	<div id="introCard" class="card w-2/3 mt-12 mb-4 mx-auto bg-base-100 shadow-lg overflow-auto">
   		<div class="card-body">
   			<div class="card-title">
