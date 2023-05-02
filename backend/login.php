@@ -33,7 +33,7 @@
                 // Password is correct
                 $_SESSION['login_user'] = $username;
                 $_SESSION['isLoggedIn'] = true;
-                header("location: ../index.php");
+                header("location: ../components/vacations.php");
             } else {
                 // Password is incorrect
                 echo "<div class='text-red-500 mt-4'>Your Username or Password is invalid</div>";
