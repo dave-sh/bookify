@@ -12,9 +12,20 @@
 	$locationid = htmlspecialchars($_GET['locationid']);
 	$vacationid = $_SESSION['vacationid'];
 	
-	$sql = "INSERT INTO activities (locationid, vacationid) VALUES ('$locationid', '$vacationid')";
+	$sql = "SELECT * FROM activities WHERE locationid = $locationid AND vacationid = $vacationid";
 	$result = $conn->query($sql);
-	$conn->close();
+	if ($result) {
+	  if ($result->num_rows > 0) {
+		$conn->close();
+	  } else {
+		$sql = "INSERT INTO activities (locationid, vacationid) VALUES ('$locationid', '$vacationid')";
+		$result = $conn->query($sql);
+		$conn->close();
+	  }
+	} else {
+	  echo 'Error: ' . mysql_error();
+	}
+	
 
 	header("location: ../components/activities.php");
 	exit;
