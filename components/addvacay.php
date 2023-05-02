@@ -26,6 +26,7 @@
 	$_SESSION['vacationid'] = $vacationid;
 	$conn->close();
 
-	header("location: vacation.php");
-	exit;
+    header("location: vacation.php?vacationId=" . $vacationid);
+
+exit;
 ?>
