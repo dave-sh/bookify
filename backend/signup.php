@@ -15,24 +15,24 @@ $stmt->bind_param("ss", $email, $hashed_password);
 
 // Execute the statement
 try {
-    if ($stmt->execute()) {
-        header("location: ../components/vacations.php");
-        exit;
-    ?>
+    if ($stmt->execute()) { ?>
+        <div class="container">
+            <h1>Success!</h1>
+            <p>New user created successfully.</p>
+            <a href="../index.php">Go back to Homepage</a>
+        </div>
     <?php } else { ?>
         <div class="container">
             <h1><?php echo "Error: The email " . $email . " already exists" ?></h1>
-            <a href="../index.php">Go back to Homepage</a></br></br>
-            <a href="../backend/login.php">Returning User? Log In Here</a>
+            <a href="../index.php">Go back to Homepage</a>
         </div>
     <?php }
 }
 catch (Exception $e) { ?>
     <div class="container">
-            <h1><?php echo "Error: The email " . $email . " already exists" ?></h1>
-            <a href="../index.php">Go back to Homepage</a>
-            <a href="../backend/login.php">Returning User? Log In Here</a>
-        </div>
+        <h1><?php echo "Error: The email " . $email . " already exists" ?></h1>
+        <a href="../index.php">Go back to Homepage</a>
+    </div>
 <?php }
 
 // Close the connection
@@ -90,3 +90,4 @@ $conn->close();
 <body>
 </body>
 </html>
+

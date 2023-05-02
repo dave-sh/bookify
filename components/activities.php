@@ -39,7 +39,7 @@ $result = $conn->query($sql);
 </script>
 
 <body>
-<div data-theme="cupcake" class="h-full overflow-auto min-h-screen flex flex-col bg-base-100">
+<div data-theme="cupcake" class="h-auto overflow-auto min-h-screen flex flex-col bg-base-100">
 	<!-- Display links for logged-in users -->
 	<div class="navbar bg-primary">
     <div class="flex-1">
