@@ -10,6 +10,7 @@
 		exit;
 	}
 
+    var_dump($_GET);
 	$activityid = htmlspecialchars($_GET['activityid']);
 
 
