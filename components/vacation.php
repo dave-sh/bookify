@@ -1,14 +1,18 @@
 #!/usr/local/bin/php
 <?php
-// Initialize the session
-session_start();
- 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true){
-    header("location: ../index.php");
-    exit;
-}
+	// Initialize the session
+	session_start();
+ 	require_once('../backend/config.php');
+	// Check if the user is already logged in, if yes then redirect him to welcome page
+	if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true){
+		header("location: ../index.php");
+		exit;
+	}
+	$vacationid = $_SESSION['vacationid'];
+	$sql = "SELECT Title FROM locations INNER JOIN activities ON activities.locationid = locations.LocationID WHERE activities.vacationid = $vacationid";
+	$result = $conn->query($sql);
 ?>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -47,26 +51,52 @@ if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true){
             	<?php echo "User is".$_SESSION['login_user']; ?>
             Profile</button> |&nbsp;
           </form>
-          <form action="#" method="get" class="inline">
+          <form action="../backend/logout.php" method="get" class="inline">
             <button class="hover:underline mt-4 text-white text-xl font-bold mr-2">Logout</button>
           </form>
     </div>
   </div>
-	<div id="introCard" class="card w-2/3 mt-12 mx-auto bg-base-100 shadow-xl">
+	<div id="introCard" class="card w-2/3 mt-12 mb-4 mx-auto bg-base-100 shadow-lg overflow-auto">
   		<div class="card-body">
   			<div class="card-title">
     		<p class="text-4xl italic"><?php 
-    			$place = htmlspecialchars($_GET['place']);
-    			echo "$place";
+    			$place = $_SESSION['place'];
+    			echo $_SESSION['place'];
     		?></p>
     		<ul class="menu menu-horizontal bg-base-100 rounded-box">
   				<li><a class="hover:bg-base-100 underline">Location Info</a></li>
   				<li><a class="hover:bg-base-100 hover:underline" onclick="location.href='activities.php'">Activities</a></li>
-  				<li><a class="hover:bg-base-100 hover:underline">Item 3</a></li>
 			</ul>
   		</div>
-  		<img src="../images/<?php echo "$place";?>.jpeg" class="float-left w-1/4"/>
-  		<div class="float-right">"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</div>
+  			<img src="../images/<?php echo "$place";?>.jpeg" class="float-left w-1/4"/>
+  			<div class="float-right">"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</div>
+  			<div class="text-2xl font-bold">Your Selected Activities</div>
+  			<div class="container m-auto grid grid-cols-4 gap-4">
+				<?php
+				if ($result->num_rows > 0) {
+					// Output data of each row
+					while ($row = $result->fetch_assoc()) {
+						echo "<div class='bg-white rounded-lg shadow-md p-4 mb-4'>";
+						echo "<h2 class='text-lg font-bold mb-2'>" . $row['Title'] . "</h2>";
+						echo "<p class='text-base mb-4'>" . $row['Description'] . "</p>";
+						echo "<div class='flex justify-between items-center mb-4'>";
+						echo "<div>";
+						echo "<h3 class='text-lg font-bold text-primary mb-2'>Price Range</h3>";
+						echo "<p class='text-base font-bold text-primary'>" . $row['Price_Range'] . "</p>";
+						echo "</div>";
+						echo "<div>";
+						echo "<h3 class='text-lg font-bold text-primary mb-2'>Rating</h3>";
+						echo "<p class='text-base font-bold text-primary'>" . $row['Review_points'] . "</p>";
+						echo "</div>";
+						echo "</div>";
+						echo "</div>";
+					}
+				} else {
+					echo "No activities found";
+				}
+				$conn->close();
+				?>
+			</div>
   		</div>	
   		</div>
 	</div>
