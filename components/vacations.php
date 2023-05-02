@@ -55,7 +55,7 @@ if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true){
     <div class="flex-none">
 		<form action="#" method="post" class="text-white inline">
             <button class="hover:underline mt-4 text-white text-xl font-bold">
-            	<?php echo $_SESSION['email']; ?>
+            	<!--<?php echo $_SESSION['email']; ?> -->
             Profile</button> |&nbsp;
           </form>
           <form action="../backend/logout.php" method="get" class="inline">
