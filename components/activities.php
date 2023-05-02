@@ -6,9 +6,10 @@ if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true){
 	header("location: ../backend/login.php");
 	exit;
 }
-$place = $_GET["place"];
+$place = $_SESSION['place'];
+$name = $_GET["name"];
 $place = strtolower($place);
-$sql = "SELECT LocationID, Title, Review_points, Main_image, Description, Price_Range FROM locations WHERE name LIKE '%" .$place . "%'";
+$sql = "SELECT LocationID, Title, Review_points, Main_image, Description, Price_Range FROM locations WHERE LOWER(locations.City) LIKE '%" .$place . "%'";
 $result = $conn->query($sql);
 ?>
 <html>
@@ -59,15 +60,17 @@ $result = $conn->query($sql);
 	<div id="introCard" class="card w-2/3 mt-12 mx-auto bg-base-100 shadow-xl overflow-auto">
   		<div class="card-body">
   			<div class="card-title">
-				<p class="text-4xl italic"><?php 
-					echo $_SESSION['place'];
-					?>
-				</p>
+			<p class="text-4xl italic"><?php 
+    			echo $_SESSION['name'];
+    		?></p>
 				<ul class="menu menu-horizontal bg-base-100 rounded-box">
 					<li><a class="hover:bg-base-100 hover:underline" onclick="location.href='vacation.php'">Location Info</a></li>
 					<li><a class="hover:bg-base-100 underline">Activities</a></li>
 				</ul>
 			</div>
+			<p class="text-4xl italic"><?php 
+    			echo $_SESSION['place'];
+    		?></p>
 			<input type="text" name="place" id="place" placeholder="Search for activities"
 				   class="input input-bordered" />
 			<select class="select w-full max-w-xs">

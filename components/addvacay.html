@@ -13,12 +13,13 @@
         <div class="max-w-md mx-auto w-2/3 mt-36 bg-white rounded-xl shadow-md overflow-hidden p-6">
             <div class="form-control">
             <form action="addvacay.php" method="get">
-            <select id="place" name="place" class="select w-full mb-2" required>
-              <option disabled selected>Select Location</option>
-              <option value="Tampa">Tampa, FL</option>
-              <option value="Jacksonville">Jacksonville, FL</option>
-              <option value="Gainesville">Gainesville, FL</option>
-            </select>
+            	<input type="text" placeholder="My Vacation" name="name" class="mb-2 input w-full" />
+				<select id="place" name="place" class="select w-full mb-2" required>
+				  <option disabled selected>Select Location</option>
+				  <option value="Tampa">Tampa, FL</option>
+				  <option value="Jacksonville">Jacksonville, FL</option>
+				  <option value="Gainesville">Gainesville, FL</option>
+				</select>
               <br><button class="hover:cursor-pointer text-primary ml-36 hover:underline font-bold text-xl">Add Vacation</button>
             </form>
           </div>

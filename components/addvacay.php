@@ -11,11 +11,12 @@
 	}
 	$email = $_SESSION['login_user'];
 	$place = htmlspecialchars($_GET['place']);
+	$name = htmlspecialchars($_GET['name']);
 	$_SESSION['place'] = $place;
 	
 	$sql = "INSERT INTO vacations (userID) SELECT UserID FROM User WHERE Email = '$email'";
 	$result = $conn->query($sql);
-	$sql = "UPDATE vacations SET name = '$place' WHERE vacationID=(SELECT LAST_INSERT_ID())";
+	$sql = "UPDATE vacations SET place = '$place', name = '$name' WHERE vacationID=(SELECT LAST_INSERT_ID())";
 	$result = $conn->query($sql);
 	$sql = "SELECT vacationID FROM vacations WHERE vacationID=(SELECT LAST_INSERT_ID())";
 	$result = $conn->query($sql);
