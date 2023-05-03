@@ -10,7 +10,7 @@
 		exit;
 	}
 
-	$vacationid = htmlspecialchars($_GET['vacationid']);
+	$vacationid = htmlspecialchars($_GET['vacationId']);
 
 
 	$sql = "DELETE FROM vacations WHERE vacationID = $vacationid";
