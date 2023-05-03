@@ -12,84 +12,49 @@ $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
 // Prepare and bind the SQL statement
 $stmt = $conn->prepare("INSERT INTO User (Email, Password) VALUES (?, ?)");
 $stmt->bind_param("ss", $email, $hashed_password);
-
-// Execute the statement
-try {
-    if ($stmt->execute()) {
-        header("location: ../components/vacations.php");
-        exit;
-    ?>
-    <?php } else { ?>
-        <div class="container">
-            <h1><?php echo "Error: The email " . $email . " already exists" ?></h1>
-            <a href="../index.php">Go back to Homepage</a></br></br>
-            <a href="../backend/login.php">Returning User? Log In Here</a>
-        </div>
-    <?php }
-}
-catch (Exception $e) { ?>
-    <div class="container">
-        <h1><?php echo "Error: The email " . $email . " already exists" ?></h1>
-        <a href="../index.php">Go back to Homepage</a></br></br>
-        <a href="../backend/login.php">Returning User? Log In Here</a>
-    </div>
-<?php }
-
-// Close the connection
-$stmt->close();
-$conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-        h1 {
-            color: #007BFF;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #333;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        a:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <!-- DaisyUI CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <title>Sign Up Page</title>
 </head>
 <body>
+<div data-theme="cupcake" class="h-full min-h-screen flex flex-col bg-base-100">
+	<div class="p-4 mt-24 w-4/5 sm:w-2/3 md:w-1/2 m-auto lg:w-1/3 bg-white rounded-xl shadow-md text-center">
+<?php try {
+	// Execute the statement
+    if ($stmt->execute()) {
+        header("location: ../components/vacations.php");
+        exit;
+    ?>
+    <?php } else { ?>
+            <h1 class="text-xl font-bold"><?php echo "The email " . $email . " already exists" ?></h1>
+            <a class="font-bold text-primary hover:underline" href="../index.php">Go back to Homepage</a></br>
+            <a class="font-bold text-primary hover:underline" href="../backend/login.php">Returning User? Log In Here</a>
+    <?php }
+}
+catch (Exception $e) { ?>
+        <h1 class="text-xl font-bold"><?php echo "The email " . $email . " already exists" ?></h1>
+            <a class="font-bold text-primary hover:underline" href="../index.php">Go back to Homepage</a></br>
+            <a class="font-bold text-primary hover:underline" href="../backend/login.php">Returning User? Log In Here</a>
+    <?php }
+
+// Close the connection
+$stmt->close();
+$conn->close();
+?>
+</div>
+</div>
+
 </body>
 </html>
+
+
 
 
 
