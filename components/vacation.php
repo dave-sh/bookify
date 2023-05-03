@@ -13,7 +13,7 @@
 		$vacationid = $_SESSION['vacationid'];
 	}
 	$_SESSION['vacationid'] = $vacationid;
-	$sql = "SELECT name, place FROM vacations WHERE vacationID = $vacationid";
+	$sql = "SELECT name, place FROM vacations WHERE vacationID = '$vacationid'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	if($row) {
@@ -22,14 +22,17 @@
 		$_SESSION['place'] = $place;
 		$_SESSION['name'] = $name;
 	}
-	/*$sql = "SELECT activityid FROM activities INNER JOIN locations ON activities.locationid = locations.LocationID WHERE activities.vacationid = $vacationid";
+$sql = "SELECT activityid FROM activities INNER JOIN locations ON activities.locationid = locations.LocationID WHERE activities.vacationid = $vacationid";
+
 	$result = $conn->query($sql);
     $row = $result->fetch_assoc();
 	if($row) {
 		$activityid = $row['activityid'];
 	}*/
 	
+
 	$sql = "SELECT activities.activityid, Title, Review_points, Main_image, Description, Price_Range FROM locations INNER JOIN activities ON activities.locationid = locations.LocationID WHERE activities.vacationid = '$vacationid'";
+
 	$result = $conn->query($sql);
 ?>
 
@@ -98,7 +101,9 @@ include 'navbar_logged_in.php';
 				if ($result->num_rows > 0) {
 					// Output data of each row
 					while ($row = $result->fetch_assoc()) {
+
 						$activityid = $row['activityid'];
+
 						echo "<div class='bg-white rounded-lg shadow-md p-4 mb-4 image-full'>";
 						echo "<button class='btn btn-xs btn-square float-right btn-primary text-white mb-2 -mt-1' name='activityid' value='$activityid' onClick='remove()'>";
 						echo "<svg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>";
