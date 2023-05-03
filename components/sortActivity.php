@@ -1,6 +1,5 @@
 #!/usr/local/bin/php
 <?php
-	
 	require_once('../backend/config.php');
 	session_start();
 	if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true){
