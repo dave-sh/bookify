@@ -10,7 +10,7 @@
 		exit;
 	}
 
-    var_dump($_GET);
+    //var_dump($_GET);
 	$activityid = htmlspecialchars($_GET['activityid']);
 
 	$sql = "DELETE FROM activities WHERE activityid = $activityid";

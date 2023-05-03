@@ -22,13 +22,13 @@
 		$_SESSION['place'] = $place;
 		$_SESSION['name'] = $name;
 	}
-$sql = "SELECT activityid FROM activities INNER JOIN locations ON activities.locationid = locations.LocationID WHERE activities.vacationid = $vacationid";
-
+	/*$sql = "SELECT activityid FROM activities INNER JOIN locations ON activities.locationid = locations.LocationID WHERE activities.vacationid = $vacationid";
 	$result = $conn->query($sql);
     $row = $result->fetch_assoc();
 	if($row) {
 		$activityid = $row['activityid'];
-	}*/
+	}
+	*/
 	
 
 	$sql = "SELECT activities.activityid, Title, Review_points, Main_image, Description, Price_Range FROM locations INNER JOIN activities ON activities.locationid = locations.LocationID WHERE activities.vacationid = '$vacationid'";
