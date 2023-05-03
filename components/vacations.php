@@ -63,7 +63,7 @@ include 'navbar_logged_in.php';
   		<div class="text-white italic -mt-2">Add Vacation</div>
   	</button>
   	<form method="get" action="" name='vacForm'>
-  	<div class="container w-2/3 mt-4 mx-auto grid grid-cols-2 gap-4 overflow-auto mb-4">
+  	<div class="container w-2/3 mt-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-auto mb-4">
   		<?php
 			if ($result->num_rows > 0) {
 				// Output data of each row
