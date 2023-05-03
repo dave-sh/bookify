@@ -1,13 +1,11 @@
 #!/usr/local/bin/php
 <?php
-	
 	require_once('../backend/config.php');
 	session_start();
 	if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true){
 		header("location: ../backend/login.php");
 		exit;
 	}
-	
 	$search = $_GET["search"];
 	$place = $_SESSION['place'];
 	$sql = "SELECT LocationID, Title, Review_points, Main_image, Description, Price_Range FROM locations WHERE (LOWER(locations.Title) LIKE '$search%' OR LOWER(locations.Description) LIKE '%$search%') AND LOWER(locations.City) LIKE '%$place%'";

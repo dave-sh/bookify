@@ -6,13 +6,21 @@
  	
 	// Check if the user is already logged in, if yes then redirect him to welcome page
 	if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true){
-		header("location: newuser.php");
+		header("location: ../backend/login.php");
 		exit;
 	}
 	$email = $_SESSION['login_user'];
 	$place = htmlspecialchars($_GET['place']);
 	$name = htmlspecialchars($_GET['name']);
 	$_SESSION['place'] = $place;
+	
+	if (empty($place)) {
+		header("location: addvacay.html");
+		exit;
+	}
+	if (empty($name)) {
+		$name = "My Vacation";
+	}
 	
 	$sql = "INSERT INTO vacations (userID) SELECT UserID FROM User WHERE Email = '$email'";
 	$result = $conn->query($sql);
