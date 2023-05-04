@@ -1,6 +1,6 @@
 <div data-theme="cupcake" class="navbar bg-primary">
     <div class="flex-1">
-    	<img onclick="location.href='index.php'" class="hover:cursor-pointer" src="https://cise.ufl.edu/~kvelichko/cis4930/bookify/images/favicon.ico"/>
+    	<img onclick="location.href='index.php'" class="hover:cursor-pointer" alt="beach icon" src="https://cise.ufl.edu/~kvelichko/cis4930/bookify/images/favicon.ico">
         <a href="index.php" class="hover:cursor-pointer ml-2 hover:underline text-white font-bold text-4xl">Bookify</a>
     </div>
     <div class="flex-none">

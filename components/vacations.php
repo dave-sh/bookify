@@ -16,20 +16,16 @@
 	$sql = "SELECT name, place, vacationID FROM vacations WHERE userID = $userid";
 	$result = $conn->query($sql);
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <title>Bookify</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <title>Bookify</title>
   </head>
   <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">

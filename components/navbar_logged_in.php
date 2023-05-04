@@ -1,6 +1,6 @@
 <div data-theme="cupcake" class="navbar bg-primary">
     <div class="flex-1">
-    	<img onclick="location.href='https://cise.ufl.edu/~kvelichko/cis4930/bookify/index.php'" class="hover:cursor-pointer" src="https://cise.ufl.edu/~kvelichko/cis4930/bookify/images/favicon.ico"/>
+    	<img onclick="location.href='https://cise.ufl.edu/~kvelichko/cis4930/bookify/index.php'" alt="beach icon" class="hover:cursor-pointer" src="https://cise.ufl.edu/~kvelichko/cis4930/bookify/images/favicon.ico"/>
         <a href="https://cise.ufl.edu/~kvelichko/cis4930/bookify/index.php"
            class="hover:cursor-pointer hover:underline text-white font-bold ml-2 text-4xl">Bookify</a>
     </div>
