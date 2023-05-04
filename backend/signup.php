@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- DaisyUI CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css">
     <title>Sign Up Page</title>
 </head>
 <body>
@@ -49,13 +49,13 @@
 				?>
 				<?php } else { ?>
 					<h1 class="text-xl font-bold"><?php echo "The email " . $email . " already exists" ?></h1>
-					<a class="font-bold text-primary hover:underline" href="../index.php">Go back to Homepage</a></br>
+					<a class="font-bold text-primary hover:underline" href="../index.php">Go back to Homepage</a><br>
 					<a class="font-bold text-primary hover:underline" href="../backend/login.php">Returning User? Log In Here</a>
 				<?php }
 			}
 			catch (Exception $e) { ?>
 				<h1 class="text-xl font-bold"><?php echo "The email " . $email . " already exists" ?></h1>
-				<a class="font-bold text-primary hover:underline" href="../index.php">Go back to Homepage</a></br>
+				<a class="font-bold text-primary hover:underline" href="../index.php">Go back to Homepage</a><br>
 				<a class="font-bold text-primary hover:underline" href="../backend/login.php">Returning User? Log In Here</a>
 			<?php }
 
